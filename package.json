@@ -1,0 +1,24 @@
+{
+  "name": "AITiveSpeech",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node ./src/naver/naver.speech.server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imincheol/AITive-Speech.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imincheol/AITive-Speech/issues"
+  },
+  "homepage": "https://github.com/imincheol/AITive-Speech#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "require": "^2.4.20"
+  }
+}
