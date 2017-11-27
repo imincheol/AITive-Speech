@@ -11,7 +11,7 @@ var fs = require('fs');
 app.get('/tts', function (req, res) {
     console.log("tts");
     var lines = readLocalSampleFile();
-    // loadSpeechLine(lines);
+    loadSpeechLine(lines);
 });
 
 function readLocalSampleFile() {
@@ -20,7 +20,7 @@ function readLocalSampleFile() {
     var fileContent = "" + file;
     console.log('chars : ' + fileContent.length);
 
-    var MAX_LEN = 1000;
+    var MAX_LEN = 10000;
 
     var lines = fileContent.split("\n");
     console.log('lines : ' + lines.length);
@@ -50,8 +50,6 @@ function readLocalSampleFile() {
     return speechLines;
 }
 
-// loadSpeechLine(speechLines);
-
 var speechCount = 1;
 function loadSpeechLine(lines) {
     if ( !lines || lines.length < 1) {
@@ -73,8 +71,11 @@ function getSpeechTextMp3(text, i, complete) {
         // form: {'speaker':'mijin', 'speed':'0', 'text':text}, // Woman
         // form: {'speaker':'jinho', 'speed':'-5', 'text':text}, // Man 1.5
         // form: {'speaker':'jinho', 'speed':'0', 'text':text}, // Man 1(normal)
-        form: {'speaker':'jinho', 'speed':'2', 'text':text}, // Man 0.8
-        // form: {'speaker':'jinho', 'speed':'5', 'text':text}, // Man 0.5
+
+        // form: { 'speaker': 'jinho', 'speed': '2', 'text': text }, // Man 0.8
+        // form: { 'speaker': 'mijin', 'speed': '-2', 'text': text }, // Lady 1.2
+        form: { 'speaker': 'mijin', 'speed': '-1', 'text': text }, // Lady 1.0
+
         headers: {'X-Naver-Client-Id':client_id, 'X-Naver-Client-Secret': client_secret}
     };
     var writeStream = fs.createWriteStream('./tts'+ i +'.mp3');
@@ -93,5 +94,8 @@ function getRequest() {
 
 app.listen(3000, function () {
     console.log('http://127.0.0.1:3000/tts app listening on port 3000!');
+
+    var lines = readLocalSampleFile();
+    loadSpeechLine(lines);
 });
 
