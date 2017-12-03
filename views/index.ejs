@@ -1,0 +1,47 @@
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Naver Speech API Developer Demo Site</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Naver API Test Page - Speech API</h1>
+
+        <form class="dev-info">
+            <div class="input-group">
+                <label for="clinet_id">네이버 클라이언트 아이디 (NaverClientID)</label>
+                <input type="text" id="client_id" class="form-control dev-info--clinet__id" placeholder="NaverClientID">
+            </div>
+            <div class="input-group">
+                <label for="client_secret">네이버 클라이언트 시크릿 (NaverClientSecret)</label>
+                <input type="text" id="client_secret" class="form-control dev-info--client_secret" placeholder="NaverClientSecret">
+            </div>
+            <div class="input-group">
+                <label for="lesson">번역할 텍스트 내용 (Translate text)</label>
+                <textarea id="lesson" class="form-control text" maxlength="400" placeholder="음성으로 바꿀 텍스트"></textarea>
+            </div>
+            <div class="language">
+                <p>언어 선택 (Select language)</h3>
+                <div class="input-group">
+                    <input type="radio" name="language" id="language_ko" value="ko" checked>
+                    <label for="language_ko">한국어(Korean)</label>
+                    <span> </span>
+                    <input type="radio" name="language" id="language_en" value="en">
+                    <label for="language_en">영어(English)</label>
+                </div>
+            </div>
+            <div class="button">
+                <input id="buttonSubmit" type="button" value="음성파일로 바꾸기(Submit)">
+            </div>
+        </form>
+    </div>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+</body>
+
+</html>
