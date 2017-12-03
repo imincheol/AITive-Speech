@@ -1,3 +1,6 @@
+// Config
+var PORT = process.env.PORT || 80;
+
 // Get express module 
 var express = require('express');
 
@@ -28,6 +31,6 @@ app.use('/tts', require('./routes/tts.js'));
 
 
 // Server
-app.listen(80, function () {
+app.listen(PORT, function () {
     console.log('Server is started!');
 });
